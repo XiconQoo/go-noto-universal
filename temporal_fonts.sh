@@ -19,7 +19,7 @@ create_japanese_kana_subset
 create_korean_hangul_subset
 create_tibetan_subset
 drop_vertical_tables NotoSansMongolian-Regular.ttf
-drop_vertical_tables NotoSansNushu-Bold.ttf
+drop_vertical_tables NotoSansNushu-Regular.ttf
 echo "Generating GoNotoCurrent.ttf. Current time: $(date)."
 go_build GoNotoCurrent.ttf "${GoNotoCurrent[@]}"
 
