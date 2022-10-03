@@ -14,11 +14,11 @@ source categories.sh
 mkdir -p cache/
 
 create_tibetan_subset
-drop_vertical_tables NotoSerifDogra-Regular.ttf
-drop_vertical_tables NotoSansNandinagari-Regular.ttf
-drop_vertical_tables NotoSansMongolian-Regular.ttf
-drop_vertical_tables NotoSansNushu-Regular.ttf
-drop_vertical_tables NotoSerifTangut-Regular.ttf
+drop_vertical_tables NotoSerifDogra-Bold.ttf
+drop_vertical_tables NotoSansNandinagari-Bold.ttf
+drop_vertical_tables NotoSansMongolian-Bold.ttf
+drop_vertical_tables NotoSansNushu-Bold.ttf
+drop_vertical_tables NotoSerifTangut-Bold.ttf
 
 declare -a fonts=(
     GoNotoAfricaMiddleEast

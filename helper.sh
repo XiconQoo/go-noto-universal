@@ -74,7 +74,7 @@ drop_vertical_tables() {
 
 # create tibetan subset so that GSUB is not overflow'ed.
 create_tibetan_subset() {
-    local input_font=NotoSerifTibetan-Regular.ttf
+    local input_font=NotoSerifTibetan-Bold.ttf
     local output_font="${input_font/-/Subset-}"
     local glyphs=0
     local exclude_regex='uni0F([45].|6[^2])0F(9.|A[^D]|B[^12])|uni[[:xdigit:]]{8,12}\.[23]|uni0F(4[3D]|5[27C]|69).|0F..0F74'
@@ -102,8 +102,8 @@ create_tibetan_subset() {
 # Unihan IICore 2005 is a small subset of CJK (~10k codepoints).
 # Recently it has been superseded by UnihanCore2020, which is double in size.
 create_cjk_unihan_core() {
-    local input_font=NotoSansCJKsc-Regular.otf
-    local subset_otf=GoNotoSansCJKscSubset-Regular.otf
+    local input_font=NotoSansCJKsc-Bold.otf
+    local subset_otf=GoNotoSansCJKscSubset-Bold.otf
     local subset_ttf="${subset_otf/otf/ttf}"
     local output_font=GoNotoCJKCore.ttf
     local subset_codepoints=unihan_core_2020.txt
@@ -161,12 +161,12 @@ create_cjk_unihan_core() {
     cd "$OLDPWD"
 
     go_build "$output_font" \
-             NotoSans-Regular.ttf "$subset_ttf" NotoMusic-Regular.ttf \
-             NotoSansSymbols-Regular.ttf NotoSansSymbols2-Regular.ttf
+             NotoSans-Bold.ttf "$subset_ttf" NotoMusic-Bold.ttf \
+             NotoSansSymbols-Bold.ttf NotoSansSymbols2-Bold.ttf
 }
 
 create_cjk_subset() {
-    local input_otf=NotoSansCJKsc-Regular.otf
+    local input_otf=NotoSansCJKsc-Bold.otf
     local subset_otf="${input_otf/-/Subset-}"
     local subset_ttf="${subset_otf/otf/ttf}"
     local codepoints=""
@@ -223,7 +223,7 @@ create_cjk_subset() {
 }
 
 create_korean_hangul_subset() {
-    local input_otf=NotoSansCJKkr-Regular.otf
+    local input_otf=NotoSansCJKkr-Bold.otf
     local subset_otf="${input_otf/-/Subset-}"
     local subset_ttf="${subset_otf/otf/ttf}"
     local codepoints=""
@@ -258,7 +258,7 @@ create_korean_hangul_subset() {
 }
 
 create_japanese_kana_subset() {
-    local input_otf=NotoSansCJKjp-Regular.otf
+    local input_otf=NotoSansCJKjp-Bold.otf
     local subset_otf="${input_otf/-/Subset-}"
     local subset_ttf="${subset_otf/otf/ttf}"
     local codepoints=""
@@ -332,7 +332,7 @@ go_build() {
     # Copy line metrics from Noto Sans Regular
     download_url "https://github.com/googlefonts/nototools/raw/main/nototools/substitute_linemetrics.py"
     python3 ./substitute_linemetrics.py --output=../"$output" \
-            ../"$output" NotoSans-Regular.ttf
+            ../"$output" NotoSans-Bold.ttf
 
     cd "$OLDPWD"
 
